@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regional Convention Attendant Messenger</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(120deg, #1b194d, #3a7bd5);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 6px rgba(105, 103, 103, 0.1);
+        }
+        h1 {
+            color: #05376d;
+            font-weight: 600;
+            text-align: center;
+        }
+        button[type="submit"] {
+            background-color: #8cbae8;
+            width: 100%;
+        }
+        button[type="submit"]:hover {
+            background-color: #0352ad;
+        }
+        textarea {
+            width: 494px;
+            height: 222px;                  
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4"><i class="fas fa-comments"></i> Regional Convention Attendant Messenger Portal</h1>
+        <form id="sms-form">
+            <div class="mb-3">
+                <label for="message" class="form-label text-center">Enter SMS Text Message To Be Distributed Among All Attendants</label>
+                <textarea id="message" name="message" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mb-3"><i class="fas fa-paper-plane"></i> Send</button>
+        </form>
+        <footer class="text-center mt-4">
+            <p>&copy; 2023 Regional Convention Attendant Messenger. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        $("#sms-form").on("submit", function (event) {
+            event.preventDefault();
+
+            $.post("/send_sms", $(this).serialize(), function (response) {
+                if (response.result === "success") {
+                    alert("SMS sent successfully to all recipients");
+                } else {
+                    alert("Failed to send SMS. Error: " + response.message);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
