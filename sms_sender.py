@@ -9,7 +9,7 @@ def send_sms():
     try:
         # Your Twilio account SID and auth token
         account_sid = 'AC923cc1d4f47e95e93c2c111da4cafdf8'
-        auth_token = '6e9360a33e75289336e85e9fa5333c9e'
+        auth_token = '233b35ef14cfa8bf8aa26d1695c128ce'
 
         # Initialize the Twilio client
         client = Client(account_sid, auth_token)
@@ -20,6 +20,9 @@ def send_sms():
         # List of recipients
         recipients = [
             ("Elyi Pierre", "3473582131"),
+            ("Eurial McFarlane", "3472650138"),
+            ("Anthony Scandiffio", "9144335481"),
+            ("Michael Sloggott", "6315219344"),
             # Add the rest of the recipients here
         ]
 
