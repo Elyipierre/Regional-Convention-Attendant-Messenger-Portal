@@ -37,9 +37,14 @@
             background-color: #0352ad;
         }
         textarea {
-            width: 494px;
+            width: 100%;
             height: 222px;                  
         }
+        @media (max-width: 576px) {
+            .container {
+                width: 100%;
+            }
+        }								   	 
     </style>
 </head>
 <body>
@@ -60,7 +65,7 @@
         $("#sms-form").on("submit", function (event) {
             event.preventDefault();
 
-            $.post("/send_sms", $(this).serialize(), function (response) {
+            $.post("https://replit.com/@Elyipierre/Regional-Convention-Attendant-Messenger-Portal/send_sms", $(this).serialize(), function (response) {
                 if (response.result === "success") {
                     alert("SMS sent successfully to all recipients");
                 } else {
