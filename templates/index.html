@@ -60,7 +60,7 @@
         $("#sms-form").on("submit", function (event) {
             event.preventDefault();
 
-            $.post("/send_sms", $(this).serialize(), function (response) {
+            $.post("https://replit.com/@Elyipierre/Regional-Convention-Attendant-Messenger-Portal/send_sms", $(this).serialize(), function (response) {
                 if (response.result === "success") {
                     alert("SMS sent successfully to all recipients");
                 } else {
