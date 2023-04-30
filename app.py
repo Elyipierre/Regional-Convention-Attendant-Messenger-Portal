@@ -14,7 +14,7 @@ def send_sms():
 
     # Your Twilio account SID and auth token
     account_sid = 'AC923cc1d4f47e95e93c2c111da4cafdf8'
-    auth_token = '6e9360a33e75289336e85e9fa5333c9e'
+    auth_token = '233b35ef14cfa8bf8aa26d1695c128ce'
 
     # Initialize the Twilio client
     client = Client(account_sid, auth_token)
